@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "installCommand": "npm install",
+  "buildCommand": "npm run build -w frontend",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/backend/api" },
+    { "source": "/(.*)", "destination": "/frontend/$1" }
+  ],
+  "functions": {
+    "backend/api/index.js": {
+      "includeFiles": "backend/src/**"
+    }
+  }
+}

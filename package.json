@@ -1,0 +1,22 @@
+{
+  "name": "crm-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "setup": "npm install && node scripts/check-env.mjs",
+    "dev": "concurrently -n front,back -c cyan,magenta \"npm run dev -w frontend\" \"npm run dev -w backend\"",
+    "dev:frontend": "npm run dev -w frontend",
+    "dev:backend": "npm run dev -w backend",
+    "build": "npm run build -w frontend && npm run build -w backend",
+    "build:frontend": "npm run build -w frontend",
+    "build:backend": "npm run build -w backend",
+    "health": "curl -s http://localhost:3001/api/health"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
