@@ -1,8 +1,24 @@
 import { browser } from '$app/env';
 
-const BASE = browser
-	? import.meta.env.PUBLIC_API_URL || '/api'
-	: import.meta.env.PUBLIC_API_URL || 'http://localhost:3001/api';
+/**
+ * Base del API:
+ * - Navegador: ruta pública `/api` (rewrite de Vercel → service backend)
+ * - SSR / server: binding `BACKEND_URL` (inyectado por Vercel; no configurarlo a mano)
+ * - Local sin Vercel: PUBLIC_API_URL o localhost:3001
+ */
+function apiBase(): string {
+	if (browser) {
+		return import.meta.env.PUBLIC_API_URL || '/api';
+	}
+
+	const backendUrl = typeof process !== 'undefined' ? process.env.BACKEND_URL : undefined;
+	if (backendUrl) {
+		// Express monta rutas bajo /api; el service recibe el path original
+		return new URL('/api', backendUrl).toString().replace(/\/$/, '');
+	}
+
+	return import.meta.env.PUBLIC_API_URL || 'http://localhost:3001/api';
+}
 
 function token() {
 	if (!browser) return null;
@@ -21,7 +37,9 @@ export async function api<T = unknown>(
 		if (t) h.set('Authorization', `Bearer ${t}`);
 	}
 
-	const res = await fetch(`${BASE}${path}`, { ...rest, headers: h });
+	const base = apiBase();
+	const url = path.startsWith('http') ? path : `${base}${path.startsWith('/') ? path : `/${path}`}`;
+	const res = await fetch(url, { ...rest, headers: h });
 	if (res.status === 204) return undefined as T;
 
 	const data = await res.json().catch(() => ({}));

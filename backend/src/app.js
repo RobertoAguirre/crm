@@ -14,6 +14,7 @@ import emailRoutes from './routes/email.js';
 
 const app = express();
 
+// En Vercel Services el front llama por rewrite/binding; CORS amplio por si hay preview URLs
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN || process.env.FRONTEND_URL || true,

@@ -62,14 +62,20 @@ npm run dev
 - Frontend: http://localhost:5173  
 - API: http://localhost:3001/api/health  
 
-## 4. Deploy en Vercel (monorepo)
+## 4. Deploy en Vercel (Services)
 
-1. Sube el repo a GitHub.
-2. Importa el proyecto en Vercel.
-3. Configura env vars (`SUPABASE_*`, `RESEND_*`, `PUBLIC_API_URL`, etc.).
-4. En producción, `PUBLIC_API_URL` puede ser `/api` si sirves backend y frontend juntos, o la URL del servicio Node.
+El repo usa **Vercel Services** (`vercel.json`): un proyecto, dos services.
 
-> En el diagrama aparece **Render ($7/mes)** para hospedar el backend. Si prefieres esa variante: despliega `backend/` en Render y `frontend/` en Vercel, apuntando `PUBLIC_API_URL` a la URL de Render.
+| Service    | Root       | Público        | Notas                                      |
+|------------|------------|----------------|--------------------------------------------|
+| `backend`  | `backend/` | sí → `/api/*`  | Express (`src/app.js`)                     |
+| `frontend` | `frontend/`| sí → `/*`      | SvelteKit; binding `BACKEND_URL` → backend |
+
+1. Sube el repo a GitHub e importa el proyecto en Vercel (root del monorepo).
+2. Configura env vars: `SUPABASE_*`, `RESEND_*`, `PUBLIC_API_URL=/api`, `PUBLIC_SUPABASE_*`.
+3. **No** definas `BACKEND_URL`: Vercel la inyecta vía binding.
+4. Local con bindings: `npx vercel dev` (o `npm run dev:vercel`).  
+   Sin Vercel CLI: `npm run dev` (front :5173 + back :3001).
 
 ## Roles
 
