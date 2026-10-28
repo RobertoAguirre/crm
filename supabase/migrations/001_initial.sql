@@ -9,9 +9,9 @@ create table if not exists public.branding (
   id uuid primary key default gen_random_uuid(),
   company_name text not null default 'Mi CRM',
   logo_url text,
-  primary_color text not null default '#0d9488',
-  secondary_color text not null default '#0f172a',
-  accent_color text not null default '#f59e0b',
+  primary_color text not null default '#ff6600',
+  secondary_color text not null default '#000000',
+  accent_color text not null default '#ffffff',
   updated_at timestamptz not null default now()
 );
 

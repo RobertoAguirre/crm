@@ -76,7 +76,7 @@
 					<td>{c.company || '—'}</td>
 					<td>{c.phone || '—'}</td>
 					<td><span class="badge {c.stage}">{c.stage}</span></td>
-					<td><a href="/contactos/{c.id}" style="color:var(--primary);font-weight:600">Ver</a></td>
+					<td><a href="/contactos/{c.id}">Ver</a></td>
 				</tr>
 			{:else}
 				<tr><td colspan="5" style="color:var(--muted)">Sin contactos aún</td></tr>

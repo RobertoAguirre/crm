@@ -5,9 +5,9 @@
 	let form = $state({
 		company_name: '',
 		logo_url: '',
-		primary_color: '#0d9488',
-		secondary_color: '#0f172a',
-		accent_color: '#f59e0b'
+		primary_color: '#ff6600',
+		secondary_color: '#000000',
+		accent_color: '#ffffff'
 	});
 	let msg = $state('');
 	let error = $state('');
@@ -91,7 +91,7 @@
 			Botón de muestra
 		</button>
 		<span
-			style="display:inline-block;margin-left:0.5rem;padding:0.35rem 0.7rem;border-radius:999px;background:{form.accent_color};color:#111;font-size:0.8rem;font-weight:600"
+			style="display:inline-block;margin-left:0.5rem;padding:0.35rem 0.7rem;border-radius:999px;background:{form.accent_color};color:#000;border:1px solid #fff;font-size:0.8rem;font-weight:600"
 		>
 			Acento
 		</span>

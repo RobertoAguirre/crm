@@ -18,7 +18,7 @@ export async function sendEmail({ to, subject, html }) {
 export function welcomeHtml(name, brand = 'Mi CRM') {
   return `
     <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:24px">
-      <h1 style="color:#0d9488">${brand}</h1>
+      <h1 style="color:#ff6600">${brand}</h1>
       <p>Hola ${name || ''},</p>
       <p>Tu cuenta quedó lista. Ya puedes entrar al CRM y gestionar contactos, oportunidades y agenda.</p>
       <p style="color:#64748b;font-size:13px">Enviado desde México · ${new Date().toLocaleString('es-MX', { timeZone: 'America/Mexico_City' })}</p>
@@ -29,7 +29,7 @@ export function welcomeHtml(name, brand = 'Mi CRM') {
 export function reminderHtml(title, when, brand = 'Mi CRM') {
   return `
     <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:24px">
-      <h2 style="color:#0f172a">${brand} · Recordatorio</h2>
+      <h2 style="color:#000000">${brand} · Recordatorio</h2>
       <p><strong>${title}</strong></p>
       <p>Fecha: ${when}</p>
     </div>

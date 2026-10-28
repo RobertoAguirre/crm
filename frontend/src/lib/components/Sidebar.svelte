@@ -25,9 +25,12 @@
 </script>
 
 <aside class="sidebar" class:open>
-	<div class="brand">
-		<span class="brand-dot"></span>
-		{branding.data?.company_name || 'Mi CRM'}
+	<div class="brand" style="flex-direction:column;align-items:flex-start;gap:0.75rem">
+		<img src="/logo.jpg" alt="" width="140" height="115" style="width:140px;height:auto;display:block" />
+		<span style="display:flex;align-items:center;gap:0.5rem">
+			<span class="brand-dot"></span>
+			{branding.data?.company_name || 'Mi CRM'}
+		</span>
 	</div>
 
 	<nav class="nav">

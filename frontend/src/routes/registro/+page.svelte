@@ -26,12 +26,17 @@
 
 <div class="auth-page">
 	<form class="auth-card" onsubmit={submit}>
-		<div class="brand" style="margin-bottom:0.75rem">
-			<span class="brand-dot"></span>
-			{branding.data?.company_name || 'Mi CRM'}
-		</div>
+		<img
+			class="auth-logo"
+			src="/logo.jpg"
+			alt={branding.data?.company_name || 'Logo'}
+			width="220"
+			height="181"
+		/>
 		<h1>Crear cuenta</h1>
-		<p style="color:var(--muted);margin:0 0 1.25rem">Registro rápido para tu equipo</p>
+		<p style="color:var(--muted);margin:0 0 1.25rem;text-transform:none;letter-spacing:0;font-family:var(--font-body);font-weight:400">
+			Registro rápido para tu equipo
+		</p>
 
 		<div class="field">
 			<label for="name">Nombre completo</label>
@@ -53,8 +58,8 @@
 		<button class="btn" style="width:100%" disabled={loading}>
 			{loading ? 'Creando…' : 'Registrarme'}
 		</button>
-		<p style="margin:1rem 0 0;text-align:center;color:var(--muted);font-size:0.9rem">
-			¿Ya tienes cuenta? <a href="/login" style="color:var(--primary);font-weight:600">Entrar</a>
+		<p style="margin:1rem 0 0;text-align:center;color:var(--muted);font-size:0.9rem;text-transform:none;letter-spacing:0;font-family:var(--font-body);font-weight:400">
+			¿Ya tienes cuenta? <a href="/login">Entrar</a>
 		</p>
 	</form>
 </div>

@@ -25,12 +25,17 @@
 
 <div class="auth-page">
 	<form class="auth-card" onsubmit={submit}>
-		<div class="brand" style="margin-bottom:0.75rem">
-			<span class="brand-dot"></span>
-			{branding.data?.company_name || 'Mi CRM'}
-		</div>
+		<img
+			class="auth-logo"
+			src="/logo.jpg"
+			alt={branding.data?.company_name || 'Logo'}
+			width="220"
+			height="181"
+		/>
 		<h1>Iniciar sesión</h1>
-		<p style="color:var(--muted);margin:0 0 1.25rem">Gestiona leads, prospectos y clientes</p>
+		<p style="color:var(--muted);margin:0 0 1.25rem;text-transform:none;letter-spacing:0;font-family:var(--font-body);font-weight:400">
+			Gestiona leads, prospectos y clientes
+		</p>
 
 		<div class="field">
 			<label for="email">Correo</label>
@@ -51,11 +56,15 @@
 			<p style="color:var(--danger);font-size:0.9rem">{error}</p>
 		{/if}
 
-		<button class="btn" style="width:100%" disabled={loading}>
+		<button
+			class="btn"
+			style="width:100%;background:#ff6600;border-color:#000;color:#fff"
+			disabled={loading}
+		>
 			{loading ? 'Entrando…' : 'Entrar'}
 		</button>
-		<p style="margin:1rem 0 0;text-align:center;color:var(--muted);font-size:0.9rem">
-			¿Sin cuenta? <a href="/registro" style="color:var(--primary);font-weight:600">Regístrate</a>
+		<p style="margin:1rem 0 0;text-align:center;color:var(--muted);font-size:0.9rem;text-transform:none;letter-spacing:0;font-family:var(--font-body);font-weight:400">
+			¿Sin cuenta? <a href="/registro">Regístrate</a>
 		</p>
 	</form>
 </div>

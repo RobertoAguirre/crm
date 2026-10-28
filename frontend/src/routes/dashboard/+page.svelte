@@ -105,7 +105,7 @@
 						{#each data.recent_contacts as c, i}
 							<tr style="animation-delay:{i * 0.04}s">
 								<td>
-									<a href="/contactos/{c.id}" style="color:var(--primary);font-weight:600">
+									<a href="/contactos/{c.id}">
 										{c.first_name} {c.last_name}
 									</a>
 									{#if c.company}

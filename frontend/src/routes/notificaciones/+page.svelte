@@ -57,7 +57,7 @@
 				{#if n.body}<p style="margin:0.35rem 0;color:var(--muted)">{n.body}</p>{/if}
 				<div style="font-size:0.8rem;color:var(--muted)">{mxDate(n.created_at)} · {n.type}</div>
 				{#if n.link}
-					<a href={n.link} style="color:var(--primary);font-weight:600;font-size:0.9rem">Abrir</a>
+					<a href={n.link} style="font-size:0.9rem">Abrir</a>
 				{/if}
 			</div>
 			{#if !n.read}
