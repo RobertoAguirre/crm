@@ -71,9 +71,13 @@ El repo usa **Vercel Services** (`vercel.json`): un proyecto, dos services.
 | `backend`  | `backend/` | sí → `/api/*`  | Express (`src/app.js`)                     |
 | `frontend` | `frontend/`| sí → `/*`      | SvelteKit; binding `BACKEND_URL` → backend |
 
-1. Sube el repo a GitHub e importa el proyecto en Vercel (root del monorepo).
-2. Configura env vars: `SUPABASE_*`, `RESEND_*`, `PUBLIC_API_URL=/api`, `PUBLIC_SUPABASE_*`.
-3. **No** definas `BACKEND_URL`: Vercel la inyecta vía binding.
+1. Sube el repo a GitHub e importa el proyecto en Vercel (root del monorepo, preset **Services**).
+2. En **Environment Variables** (Production + Preview) pega:
+   `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`,
+   `JWT_SECRET` (distinto al de local), `PUBLIC_API_URL=/api`,
+   `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`, `PUBLIC_MAP_TILES`,
+   y opcional `RESEND_*`.
+3. **No** definas `BACKEND_URL` (binding), ni copies `PORT` / `CORS_ORIGIN` / `FRONTEND_URL` de local.
 4. Local con bindings: `npx vercel dev` (o `npm run dev:vercel`).  
    Sin Vercel CLI: `npm run dev` (front :5173 + back :3001).
 

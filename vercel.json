@@ -4,11 +4,13 @@
     "backend": {
       "root": "backend",
       "framework": "express",
-      "entrypoint": "src/app.js"
+      "entrypoint": "src/app.js",
+      "installCommand": "cd .. && npm install --workspace=backend"
     },
     "frontend": {
       "root": "frontend",
       "framework": "sveltekit-1",
+      "installCommand": "cd .. && npm install --workspace=frontend",
       "bindings": [
         {
           "type": "service",
