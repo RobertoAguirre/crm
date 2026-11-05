@@ -1,0 +1,23 @@
+# === Local: front + back en tu máquina; solo la DB en Supabase ===
+
+# Supabase (obligatorio — pega aquí las keys de tu proyecto)
+SUPABASE_URL=https://dzeysoyrlwfceikrzihp.supabase.co
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZXlzb3lybHdmY2Vpa3J6aWhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMxNDMzNzQsImV4cCI6MjEwODcxOTM3NH0.itSVGNS2HTb-2I6w0PI253Dw0Lxq15xL_eJW3yo0xFw
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZXlzb3lybHdmY2Vpa3J6aWhwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MzE0MzM3NCwiZXhwIjoyMTA4NzE5Mzc0fQ.2Sxe__6zowTZo-3UMLPRYMhxlfRyEycpvsICwuC5Fc0
+
+# Backend local
+PORT=3001
+JWT_SECRET=crm_local_dev_secret_mexico_2026
+FRONTEND_URL=http://localhost:5173
+CORS_ORIGIN=http://localhost:5173
+
+# Resend (opcional en local; sin key se simulan los correos)
+RESEND_API_KEY=
+RESEND_FROM=CRM <onboarding@resend.dev>
+
+# Frontend (Vite lee este archivo por envDir: '..')
+# /api usa el proxy de Vite → localhost:3001
+PUBLIC_API_URL=/api
+PUBLIC_SUPABASE_URL=https://dzeysoyrlwfceikrzihp.supabase.co
+PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6ZXlzb3lybHdmY2Vpa3J6aWhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMxNDMzNzQsImV4cCI6MjEwODcxOTM3NH0.itSVGNS2HTb-2I6w0PI253Dw0Lxq15xL_eJW3yo0xFw
+PUBLIC_MAP_TILES=https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
