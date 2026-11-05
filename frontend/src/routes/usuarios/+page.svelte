@@ -158,5 +158,44 @@
 				{/each}
 			</tbody>
 		</table>
+
+		<div class="mobile-cards">
+			{#each users as u, i}
+				<article class="mobile-card" style="animation-delay:{i * 0.04}s">
+					<h3 class="mobile-card-title">{u.full_name}</h3>
+					<div class="mobile-card-row"><span>Email</span><span>{u.email}</span></div>
+					<div class="mobile-card-row">
+						<span>Rol</span>
+						<span>
+							{#if auth.profile?.role === 'admin'}
+								<select
+									value={u.role}
+									onchange={(e) =>
+										updateRole(u.id, (e.currentTarget as HTMLSelectElement).value as User['role'])}
+								>
+									<option value="admin">admin</option>
+									<option value="manager">manager</option>
+									<option value="sales">sales</option>
+									<option value="viewer">viewer</option>
+								</select>
+							{:else}
+								{u.role}
+							{/if}
+						</span>
+					</div>
+					<div class="mobile-card-row">
+						<span>Activo</span>
+						<span>{u.is_active ? 'Sí' : 'No'}</span>
+					</div>
+					<div class="mobile-card-actions">
+						<button class="btn btn-ghost" onclick={() => toggleActive(u)}>
+							{u.is_active ? 'Desactivar' : 'Activar'}
+						</button>
+					</div>
+				</article>
+			{:else}
+				<p class="mobile-empty">Sin usuarios</p>
+			{/each}
+		</div>
 	</div>
 {/if}

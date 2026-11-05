@@ -117,6 +117,25 @@
 						{/each}
 					</tbody>
 				</table>
+
+				<div class="mobile-cards">
+					{#each data.recent_contacts as c, i}
+						<article class="mobile-card" style="animation-delay:{i * 0.04}s">
+							<h3 class="mobile-card-title">
+								<a href="/contactos/{c.id}">{c.first_name} {c.last_name}</a>
+							</h3>
+							{#if c.company}
+								<div class="mobile-card-row"><span>Compañía</span><span>{c.company}</span></div>
+							{/if}
+							<div class="mobile-card-row">
+								<span>Etapa</span>
+								<span><span class="badge {c.stage}">{c.stage}</span></span>
+							</div>
+						</article>
+					{:else}
+						<p class="mobile-empty">Sin contactos</p>
+					{/each}
+				</div>
 			</div>
 		</div>
 		<div class="panel">

@@ -152,4 +152,37 @@
 			{/each}
 		</tbody>
 	</table>
+
+	<div class="mobile-cards">
+		{#each items as o, i}
+			<article class="mobile-card" style="animation-delay:{i * 0.04}s">
+				<h3 class="mobile-card-title">{o.title}</h3>
+				<div class="mobile-card-row">
+					<span>Cliente</span>
+					<span>
+						{#if o.contacts}
+							{o.contacts.first_name} {o.contacts.last_name}
+						{:else}
+							—
+						{/if}
+					</span>
+				</div>
+				<div class="mobile-card-row">
+					<span>Monto</span>
+					<span>{money(Number(o.amount), o.currency)}</span>
+				</div>
+				<div class="mobile-card-row"><span>Probabilidad</span><span>{o.probability}%</span></div>
+				<div class="mobile-card-row">
+					<span>Estado</span>
+					<span><span class="badge {o.status}">{o.status}</span></span>
+				</div>
+				<div class="mobile-card-actions">
+					<button class="btn btn-ghost" onclick={() => setStatus(o.id, 'won')}>Ganada</button>
+					<button class="btn btn-ghost" onclick={() => setStatus(o.id, 'lost')}>Perdida</button>
+				</div>
+			</article>
+		{:else}
+			<p class="mobile-empty">Sin oportunidades</p>
+		{/each}
+	</div>
 </div>
